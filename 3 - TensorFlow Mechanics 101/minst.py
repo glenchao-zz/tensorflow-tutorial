@@ -49,6 +49,9 @@ def inference(images, hidden1_units, hidden2_units):
     softmax_linear: Output tensor with the computed logits.
   """
   # Hidden 1
+  # Within the name_scope, the weights and biases to be used by each of these
+  # layers are generated into tf.Variable instances. The unique name given to
+  # the weights variable would be "<scope_name>/<variable_name>"
   with tf.name_scope('hidden1'):
     weights = tf.Variable(
         tf.truncated_normal([IMAGE_PIXELS, hidden1_units],
